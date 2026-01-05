@@ -5,60 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Planner ENEM Isa 🌸</title>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #fff5f8;
-      color: #4a2c3a;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #f7c1d9;
-      padding: 30px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    section {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #c94f7c;
-      margin-top: 0;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .day {
-      margin-bottom: 12px;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #7a4b5f;
-    }
-  
-    .checklist li {list-style:none; margin:8px 0;}
-    .checklist input {margin-right:8px; transform: scale(1.2);} 
-    .progress {
-      background:#f3d6e3; border-radius:10px; overflow:hidden; height:12px; margin-top:10px;
-    }
-    .progress-bar {
-      height:100%; width:0%; background:#c94f7c; transition:0.3s;
-    }
-  </style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root{
+  --rosa-bg:#fff6f9;
+  --rosa-card:#ffffff;
+  --rosa-principal:#e8a2be;
+  --rosa-escuro:#c86b93;
+  --texto:#3a2430;
+  --cinza:#9a8a93;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:var(--rosa-bg);
+  color:var(--texto);
+}
+
+header{
+  background:linear-gradient(135deg,#f7c1d9,#fbe4ee);
+  padding:48px 20px;
+  text-align:center;
+}
+
+header h1{
+  font-size:34px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+header p{
+  font-size:15px;
+  color:#6b3b52;
+}
+
+section{
+  max-width:1100px;
+  margin:-40px auto 0;
+  padding:20px;
+}
+
+.card{
+  background:var(--rosa-card);
+  border-radius:22px;
+  padding:28px;
+  margin-bottom:28px;
+  box-shadow:0 20px 40px rgba(200,107,147,0.12);
+}
+
+h2{
+  font-size:20px;
+  font-weight:600;
+  color:var(--rosa-escuro);
+  margin-top:0;
+  margin-bottom:16px;
+}
+
+h3{
+  font-size:16px;
+  font-weight:500;
+  margin-bottom:12px;
+}
+
+ul{padding-left:18px;}
+li{margin-bottom:6px;}
+
+.checklist li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:15px;
+}
+
+.checklist input{
+  width:18px;
+  height:18px;
+  accent-color:var(--rosa-escuro);
+}
+
+.progress{
+  background:#f2d7e2;
+  border-radius:20px;
+  height:14px;
+  margin-top:14px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--rosa-principal),var(--rosa-escuro));
+  transition:0.4s;
+}
+
+select{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #efd1de;
+  font-family:inherit;
+  margin-bottom:16px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 10px;
+  font-size:13px;
+  color:var(--cinza);
+}
+</style>
 </head>
 <body>
 
