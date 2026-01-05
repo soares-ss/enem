@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Planner ENEM Isa 🌸</title>
-  <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Método Isa ENEM • Plataforma Educacional</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
 :root{
-  --rosa-bg:#fff6f9;
-  --rosa-card:#ffffff;
-  --rosa-principal:#e8a2be;
-  --rosa-escuro:#c86b93;
-  --texto:#3a2430;
-  --cinza:#9a8a93;
+  --rosa:#f2a1c2;
+  --rosa-escuro:#b84d78;
+  --rosa-bg:#fff6fb;
+  --card:#ffffff;
+  --texto:#2f1d26;
+  --cinza:#8f7f87;
 }
 
-*{box-sizing:border-box;}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -25,227 +26,290 @@ body{
   color:var(--texto);
 }
 
-header{
-  background:linear-gradient(135deg,#f7c1d9,#fbe4ee);
-  padding:48px 20px;
-  text-align:center;
+/* ===== LAYOUT ===== */
+.layout{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  min-height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  background:#fff;
+  padding:32px 24px;
+  box-shadow:8px 0 40px rgba(0,0,0,.05);
+}
+
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  font-weight:600;
+  color:var(--rosa-escuro);
+  margin-bottom:40px;
+}
+
+.menu button{
+  width:100%;
+  background:transparent;
+  border:none;
+  padding:14px 18px;
+  margin-bottom:10px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:500;
+  color:var(--texto);
+  cursor:pointer;
+  text-align:left;
+  transition:.3s;
+}
+
+.menu button.active,
+.menu button:hover{
+  background:linear-gradient(135deg,var(--rosa),#f6bdd5);
+  color:#fff;
+  box-shadow:0 10px 25px rgba(242,161,194,.45);
+}
+
+/* ===== MAIN ===== */
+.main{
+  padding:40px 50px;
 }
 
 header h1{
-  font-size:34px;
-  font-weight:600;
-  margin-bottom:8px;
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  margin:0;
 }
 
 header p{
-  font-size:15px;
-  color:#6b3b52;
+  color:var(--cinza);
+  margin-top:6px;
 }
 
-section{
-  max-width:1100px;
-  margin:-40px auto 0;
-  padding:20px;
+section{display:none; margin-top:40px}
+section.active{display:block}
+
+/* ===== CARDS ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
 }
 
 .card{
-  background:var(--rosa-card);
-  border-radius:22px;
+  background:var(--card);
   padding:28px;
-  margin-bottom:28px;
-  box-shadow:0 20px 40px rgba(200,107,147,0.12);
+  border-radius:22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
 
-h2{
-  font-size:20px;
-  font-weight:600;
-  color:var(--rosa-escuro);
+.card h3{
   margin-top:0;
-  margin-bottom:16px;
+  color:var(--rosa-escuro);
 }
 
-h3{
-  font-size:16px;
-  font-weight:500;
-  margin-bottom:12px;
-}
-
-ul{padding-left:18px;}
-li{margin-bottom:6px;}
-
+/* ===== CHECKLIST ===== */
 .checklist li{
+  list-style:none;
+  margin-bottom:10px;
   display:flex;
-  align-items:center;
   gap:10px;
-  font-size:15px;
 }
 
-.checklist input{
-  width:18px;
-  height:18px;
-  accent-color:var(--rosa-escuro);
-}
+.checklist input{accent-color:var(--rosa-escuro)}
 
 .progress{
-  background:#f2d7e2;
+  background:#f4d3e1;
   border-radius:20px;
-  height:14px;
-  margin-top:14px;
+  height:12px;
   overflow:hidden;
 }
 
 .progress-bar{
   height:100%;
   width:0%;
-  background:linear-gradient(90deg,var(--rosa-principal),var(--rosa-escuro));
-  transition:0.4s;
+  background:linear-gradient(90deg,var(--rosa),var(--rosa-escuro));
+  transition:.4s;
 }
 
-select{
-  padding:10px 14px;
-  border-radius:12px;
-  border:1px solid #efd1de;
+textarea,select{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid #f0c7da;
   font-family:inherit;
-  margin-bottom:16px;
 }
 
-footer{
-  text-align:center;
-  padding:30px 10px;
-  font-size:13px;
-  color:var(--cinza);
+button.primary{
+  margin-top:14px;
+  background:linear-gradient(135deg,var(--rosa),#f6bdd5);
+  border:none;
+  padding:12px 22px;
+  border-radius:30px;
+  color:white;
+  cursor:pointer;
 }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>🌸 Método Isa ENEM</h1>
-  <p>Plataforma de estudos autoral • ENEM • Redação 1000</p>
-</header>
+<div class="layout">
 
-<section>
-  <div class="card">
-    <h2>⏰ Rotina Diária FIXA (Seg–Sex)</h2>
-    <ul>
-      <li>07h–13h: Escola</li>
-      <li>15h30: Chegada em casa</li>
-      <li>16h–17h: Academia</li>
-      <li>17h30–18h20: Estudo 1</li>
-      <li>18h30–19h20: Estudo 2</li>
-    </ul>
-    <div class="progress"><div class="progress-bar" id="rotinaProgress"></div></div>
-  </div>
+  <aside class="sidebar">
+    <div class="logo">Método Isa ENEM</div>
+    <div class="menu">
+      <button class="active" onclick="openSection('dashboard',this)">📊 Dashboard</button>
+      <button onclick="openSection('cronograma',this)">📆 Cronograma</button>
+      <button onclick="openSection('conteudos',this)">📚 Conteúdos da Semana</button>
+      <button onclick="openSection('rotina',this)">⏰ Rotina</button>
+      <button onclick="openSection('redacao',this)">📝 Redação</button>
+      <button onclick="openSection('simulados',this)">🧪 Simulados</button>
+      <button onclick="openSection('metas',this)">🎯 Metas</button>
+    </div>
+  </aside>
 
-  <div class="card">
-    <h2>✅ Checklist Diário (clique ao concluir)</h2>
-    <ul class="checklist">
-      <li><input type="checkbox" onchange="updateProgress()">Estudo Bloco 1</li>
-      <li><input type="checkbox" onchange="updateProgress()">Estudo Bloco 2</li>
-      <li><input type="checkbox" onchange="updateProgress()">Questões ENEM</li>
-      <li><input type="checkbox" onchange="updateProgress()">Redação / treino</li>
-      <li><input type="checkbox" onchange="updateProgress()">Revisão</li>
-    </ul>
-  </div>
+  <main class="main">
+    <header>
+      <h1>Plataforma Educacional ENEM</h1>
+      <p>Foco em aprovação e redação nota 1000</p>
+    </header>
 
-  <div class="card">
-    <h2>📆 Cronograma ENEM Dinâmico (por mês e semana)</h2>
-    <label for="mes">Selecione o mês:</label>
-    <select id="mes" onchange="renderCronograma()">
-      <option value="Janeiro">Janeiro</option>
-      <option value="Fevereiro">Fevereiro</option>
-      <option value="Março">Março</option>
-      <option value="Abril">Abril</option>
-      <option value="Maio">Maio</option>
-      <option value="Junho">Junho</option>
-      <option value="Julho">Julho</option>
-      <option value="Agosto">Agosto</option>
-      <option value="Setembro">Setembro</option>
-      <option value="Outubro">Outubro</option>
-    </select>
+    <section id="dashboard" class="active">
+      <div class="grid">
+        <div class="card"><h3>Dias estudados</h3><strong>—</strong></div>
+        <div class="card"><h3>Redações feitas</h3><strong>—</strong></div>
+        <div class="card"><h3>Semanas concluídas</h3><strong>—</strong></div>
+      </div>
+    </section>
 
-    <div id="cronograma"></div>
-  </div>
-  </div>
+    <section id="conteudos">
+      <div class="card">
+        <h3>Conteúdos da Semana</h3>
+        <p style="color:var(--cinza)">Foco estratégico para alto desempenho no ENEM</p>
+        <ul class="checklist">
+          <li><input type="checkbox"> 📝 <strong>Redação:</strong> Competência da semana + 1 redação completa</li>
+          <li><input type="checkbox"> ➕ <strong>Matemática:</strong> Conteúdo prioritário do ENEM</li>
+          <li><input type="checkbox"> 📖 <strong>Linguagens:</strong> Interpretação e leitura ativa</li>
+          <li><input type="checkbox"> 🌍 <strong>Humanas:</strong> Sociologia / Atualidades (apoio à redação)</li>
+          <li><input type="checkbox"> 🧪 <strong>Natureza:</strong> Biologia em foco</li>
+        </ul>
+        <div style="margin-top:20px;padding:16px;border-radius:16px;background:#fff0f7">
+          <strong>Meta da semana:</strong>
+          <p>1 redação + revisão • 40 questões • 1 simulado curto</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="card">
-    <h2>📚 PROGRESSÃO DE CONTEÚDOS (JANEIRO → ENEM)</h2>
-    <ul>
-      <li><strong>Jan–Fev:</strong> Base teórica + 1 redação/semana</li>
-      <li><strong>Mar–Abr:</strong> Conteúdos médios + 2 redações/semana</li>
-      <li><strong>Mai–Jun:</strong> Listas ENEM + simulados quinzenais</li>
-      <li><strong>Jul–Ago:</strong> Revisão + 3 redações/semana</li>
-      <li><strong>Set:</strong> Simulados semanais</li>
-      <li><strong>Out:</strong> Revisão final + repertório</li>
-    </ul>
-  </div>
+    <section id="cronograma">>
+      <div class="card">
+        <h3>Cronograma Semanal</h3>
+        <select id="mes" onchange="renderCronograma()">
+          <option>Janeiro</option><option>Fevereiro</option>
+        </select>
+        <div id="cronograma"></div>
+      </div>
+    </section>
 
-  <div class="card">
-    <h2>📝 REDAÇÃO NOTA 1000 — MÉTODO</h2>
-    <ul>
-      <li>Introdução padrão + tese clara</li>
-      <li>2 repertórios legítimos por texto</li>
-      <li>Projeto de intervenção completo</li>
-      <li>Reescrita obrigatória</li>
-    </ul>
-  </div>
-</section>
+    <section id="simulados">
+      <div class="card">
+        <h3>Simulados ENEM</h3>
+        <ul class="checklist">
+          <li><input type="checkbox"> Simulado completo</li>
+          <li><input type="checkbox"> Linguagens + Humanas</li>
+          <li><input type="checkbox"> Natureza + Matemática</li>
+        </ul>
+        <p style="color:var(--cinza);font-size:14px">Faça ao menos 1 simulado por mês.</p>
+      </div>
+    </section>
 
-<footer>
-  Método Isa ENEM © 2026<br>
-  Plataforma de estudos autoral focada no ENEM e redação nota 1000
-</footer>
+    <section id="rotina">>
+      <div class="card">
+        <h3>Rotina Diária</h3>
+        <div class="progress"><div class="progress-bar" id="progress"></div></div>
+        <ul class="checklist">
+          <li><input type="checkbox" onchange="updateProgress()">Estudos teóricos</li>
+          <li><input type="checkbox" onchange="updateProgress()">Questões ENEM</li>
+          <li><input type="checkbox" onchange="updateProgress()">Redação</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="metas">
+      <div class="card">
+        <h3>Metas ENEM</h3>
+        <ul class="checklist">
+          <li><input type="checkbox"> Redação acima de 900</li>
+          <li><input type="checkbox"> Média geral acima de 700</li>
+          <li><input type="checkbox"> Bolsa em Psicologia</li>
+        </ul>
+        <p style="color:var(--cinza);font-size:14px">Visualizar metas aumenta aprovação.</p>
+      </div>
+    </section>
+
+    <section id="redacao">
+      <div class="grid">
+        <div class="card">
+          <h3>📝 Redação da Semana</h3>
+          <p><strong>Foco:</strong> Competência ENEM da semana</p>
+          <textarea rows="10" placeholder="Escreva sua redação aqui, como no dia da prova..."></textarea>
+          <button class="primary" onclick="alert('Redação salva localmente')">Salvar redação</button>
+        </div>
+
+        <div class="card">
+          <h3>📊 Correção por Competências</h3>
+          <ul class="checklist">
+            <li><input type="checkbox"> C1 – Norma culta</li>
+            <li><input type="checkbox"> C2 – Compreensão do tema</li>
+            <li><input type="checkbox"> C3 – Argumentação</li>
+            <li><input type="checkbox"> C4 – Coesão</li>
+            <li><input type="checkbox"> C5 – Proposta de intervenção</li>
+          </ul>
+          <p style="color:var(--cinza);font-size:14px">Marque o que você conseguiu cumprir.</p>
+        </div>
+
+        <div class="card">
+          <h3>🎯 Meta de Nota</h3>
+          <p><strong>Meta:</strong> 1000</p>
+          <p>Nota estimada:</p>
+          <input type="number" min="0" max="1000" placeholder="Ex: 920" style="padding:12px;border-radius:12px;border:1px solid #f0c7da;width:100%">
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
 
 <script>
+function openSection(id,btn){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
 function updateProgress(){
-  const checks = document.querySelectorAll('.checklist input');
-  let done = 0;
-  checks.forEach((c,i)=>{
-    if(c.checked){ done++; localStorage.setItem('check'+i,'1'); }
-    else{ localStorage.removeItem('check'+i); }
-  });
-  const percent = (done/checks.length)*100;
-  document.getElementById('rotinaProgress').style.width = percent + '%';
+  const checks=document.querySelectorAll('.checklist input');
+  let done=0;
+  checks.forEach((c,i)=>{ if(c.checked){done++;localStorage.setItem('c'+i,1)} else localStorage.removeItem('c'+i) })
+  document.getElementById('progress').style.width=(done/checks.length*100)+'%'
 }
 
-window.onload = ()=>{
-  const checks = document.querySelectorAll('.checklist input');
-  checks.forEach((c,i)=>{ if(localStorage.getItem('check'+i)) c.checked = true; });
-  updateProgress();
+window.onload=()=>{
+  document.querySelectorAll('.checklist input').forEach((c,i)=>{ if(localStorage.getItem('c'+i)) c.checked=true })
+  updateProgress()
 }
 
-
-// ===== CRONOGRAMA DINÂMICO MENSAL + SEMANAL =====
-const cronogramaData = {
-  'Janeiro': [
-    ['Matemática: Porcentagem','Linguagens: Interpretação','Sociologia: Cultura','Biologia: Ecologia','Redação base','Questões ENEM'],
-    ['Matemática: Funções','Linguagens: Figuras','Filosofia: Ética','Biologia: Citologia','Redação D1','Mini simulado'],
-    ['Matemática: Estatística','Linguagens: Gêneros','História: Brasil','Biologia: Genética','Redação cronometrada','Simulado'],
-    ['Revisão geral','Atualidades','Psicologia social','Natureza revisão','Redação + reescrita','Descanso ativo']
-  ],
-  'Fevereiro': [
-    ['Matemática: Razão','Linguagens: Coesão','Sociologia','Biologia','Redação','Questões'],
-    ['Matemática: Proporção','Linguagens','Filosofia','Biologia','Redação','Mini simulado'],
-    ['Matemática','Linguagens','História','Biologia','Redação','Simulado'],
-    ['Revisão','Atualidades','Psicologia','Natureza','Redação','Descanso']
-  ]
-};
+const data={Janeiro:[['Matemática','Linguagens','Humanas','Natureza','Redação','Questões']],Fevereiro:[['Funções','Interpretação','Sociologia','Biologia','Redação','Simulado']]}
 
 function renderCronograma(){
-  const mes = document.getElementById('mes').value;
-  const semanas = cronogramaData[mes];
-  const semanaAtual = Math.floor((new Date().getDate()-1)/7);
-
-  let html = `<h3>${mes} — Semana ${semanaAtual+1}</h3><ul>`;
-  ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado'].forEach((dia,i)=>{
-    html += `<li><strong>${dia}:</strong> ${semanas[semanaAtual][i]}</li>`;
-  });
-  html += '</ul>';
-  document.getElementById('cronograma').innerHTML = html;
+  const mes=document.getElementById('mes').value
+  let html='<ul>'
+  ;['Seg','Ter','Qua','Qui','Sex','Sáb'].forEach((d,i)=>html+=`<li><strong>${d}:</strong> ${data[mes][0][i]}</li>`)
+  html+='</ul>'
+  document.getElementById('cronograma').innerHTML=html
 }
-
-renderCronograma();
-
+renderCronograma()
 </script>
+
 </body>
 </html>
