@@ -49,88 +49,146 @@
       font-size: 14px;
       color: #7a4b5f;
     }
+  
+    .checklist li {list-style:none; margin:8px 0;}
+    .checklist input {margin-right:8px; transform: scale(1.2);} 
+    .progress {
+      background:#f3d6e3; border-radius:10px; overflow:hidden; height:12px; margin-top:10px;
+    }
+    .progress-bar {
+      height:100%; width:0%; background:#c94f7c; transition:0.3s;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>🌸 Planner ENEM da Isa</h1>
-  <p>Rotina organizada • Redação 1000 • Psicologia</p>
+  <h1>🌸 Método Isa ENEM</h1>
+  <p>Plataforma de estudos autoral • ENEM • Redação 1000</p>
 </header>
 
 <section>
   <div class="card">
-    <h2>⏰ Rotina Diária (Segunda a Sexta)</h2>
+    <h2>⏰ Rotina Diária FIXA (Seg–Sex)</h2>
     <ul>
-      <li>07h – 13h: Escola</li>
+      <li>07h–13h: Escola</li>
       <li>15h30: Chegada em casa</li>
-      <li>16h – 17h: Academia</li>
-      <li>17h30 – 18h30: Estudo Bloco 1</li>
-      <li>18h40 – 19h40: Estudo Bloco 2</li>
-      <li>20h: Jantar + descanso</li>
+      <li>16h–17h: Academia</li>
+      <li>17h30–18h20: Estudo 1</li>
+      <li>18h30–19h20: Estudo 2</li>
+    </ul>
+    <div class="progress"><div class="progress-bar" id="rotinaProgress"></div></div>
+  </div>
+
+  <div class="card">
+    <h2>✅ Checklist Diário (clique ao concluir)</h2>
+    <ul class="checklist">
+      <li><input type="checkbox" onchange="updateProgress()">Estudo Bloco 1</li>
+      <li><input type="checkbox" onchange="updateProgress()">Estudo Bloco 2</li>
+      <li><input type="checkbox" onchange="updateProgress()">Questões ENEM</li>
+      <li><input type="checkbox" onchange="updateProgress()">Redação / treino</li>
+      <li><input type="checkbox" onchange="updateProgress()">Revisão</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>📅 Cronograma Diário – MODELO SEMANAL (repete toda semana do mês)</h2>
-    <p style="font-size:14px">Use este modelo todos os meses, aprofundando os conteúdos.</p>
-    <div class="day"><strong>Segunda</strong><br>Bloco 1: Matemática (funções, porcentagem, estatística)<br>Bloco 2: Redação – estrutura e competência 1</div>
-    <div class="day"><strong>Terça</strong><br>Bloco 1: Linguagens (interpretação + gramática ENEM)<br>Bloco 2: Atualidades + repertório sociocultural</div>
-    <div class="day"><strong>Quarta</strong><br>Bloco 1: Ciências Humanas (Sociologia / Filosofia)<br>Bloco 2: Psicologia social aplicada ao ENEM</div>
-    <div class="day"><strong>Quinta</strong><br>Bloco 1: Ciências da Natureza (Biologia)<br>Bloco 2: Revisão ativa (mapas mentais)</div>
-    <div class="day"><strong>Sexta</strong><br>Bloco 1: Redação completa (tema ENEM)<br>Bloco 2: Correção + reescrita</div>
-    <div class="day"><strong>Sábado</strong><br>Simulado ou lista ENEM + revisão</div>
-    <div class="day"><strong>Domingo</strong><br>Descanso OU revisão leve</div>
+    <h2>📆 Cronograma ENEM Dinâmico (por mês e semana)</h2>
+    <label for="mes">Selecione o mês:</label>
+    <select id="mes" onchange="renderCronograma()">
+      <option value="Janeiro">Janeiro</option>
+      <option value="Fevereiro">Fevereiro</option>
+      <option value="Março">Março</option>
+      <option value="Abril">Abril</option>
+      <option value="Maio">Maio</option>
+      <option value="Junho">Junho</option>
+      <option value="Julho">Julho</option>
+      <option value="Agosto">Agosto</option>
+      <option value="Setembro">Setembro</option>
+      <option value="Outubro">Outubro</option>
+    </select>
+
+    <div id="cronograma"></div>
+  </div>
   </div>
 
   <div class="card">
-    <h2>🗓️ Cronograma por MÊS (Janeiro → ENEM)</h2>
+    <h2>📚 PROGRESSÃO DE CONTEÚDOS (JANEIRO → ENEM)</h2>
     <ul>
-      <li><strong>Janeiro:</strong> Base teórica + redação estrutural (1/semana)</li>
-      <li><strong>Fevereiro:</strong> Interpretação + humanas fortes</li>
-      <li><strong>Março:</strong> Matemática ENEM + natureza básica</li>
-      <li><strong>Abril:</strong> Redações argumentativas (2/semana)</li>
-      <li><strong>Maio:</strong> Conteúdos médios + revisão contínua</li>
-      <li><strong>Junho:</strong> Simulados quinzenais</li>
-      <li><strong>Julho:</strong> Revisão geral + foco em erros</li>
-      <li><strong>Agosto:</strong> Redação 3x/semana + tempo cronometrado</li>
-      <li><strong>Setembro:</strong> Simulados semanais</li>
-      <li><strong>Outubro:</strong> Revisão final + repertório</li>
-      <li><strong>Novembro:</strong> Leveza + manutenção</li>
-    </ul>
-  </div>
-    <div class="day"><strong>Terça</strong>: Linguagens (interpretação) + Atualidades</div>
-    <div class="day"><strong>Quarta</strong>: Ciências Humanas (Sociologia/Filosofia)</div>
-    <div class="day"><strong>Quinta</strong>: Ciências da Natureza (Biologia)</div>
-    <div class="day"><strong>Sexta</strong>: Redação completa + Correção</div>
-    <div class="day"><strong>Sábado</strong>: Simulado quinzenal + revisão</div>
-    <div class="day"><strong>Domingo</strong>: Descanso ou revisão leve</div>
-  </div>
-
-  <div class="card">
-    <h2>📝 Redação Nota 1000</h2>
-    <ul>
-      <li>1 redação por semana (jan–mar)</li>
-      <li>2 redações por semana (abr–jul)</li>
-      <li>3 redações por semana (ago–out)</li>
-      <li>Correção por competência (ENEM)</li>
-      <li>Banco de repertórios socioculturais</li>
+      <li><strong>Jan–Fev:</strong> Base teórica + 1 redação/semana</li>
+      <li><strong>Mar–Abr:</strong> Conteúdos médios + 2 redações/semana</li>
+      <li><strong>Mai–Jun:</strong> Listas ENEM + simulados quinzenais</li>
+      <li><strong>Jul–Ago:</strong> Revisão + 3 redações/semana</li>
+      <li><strong>Set:</strong> Simulados semanais</li>
+      <li><strong>Out:</strong> Revisão final + repertório</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>🎓 Foco Psicologia</h2>
+    <h2>📝 REDAÇÃO NOTA 1000 — MÉTODO</h2>
     <ul>
-      <li>Sociologia e Filosofia aprofundadas</li>
-      <li>Temas sociais recorrentes no ENEM</li>
-      <li>Leitura semanal complementar</li>
+      <li>Introdução padrão + tese clara</li>
+      <li>2 repertórios legítimos por texto</li>
+      <li>Projeto de intervenção completo</li>
+      <li>Reescrita obrigatória</li>
     </ul>
   </div>
 </section>
 
 <footer>
-  Feito com 💗 para a Isa | ENEM 2026
+  Método Isa ENEM © 2026<br>
+  Plataforma de estudos autoral focada no ENEM e redação nota 1000
 </footer>
 
+<script>
+function updateProgress(){
+  const checks = document.querySelectorAll('.checklist input');
+  let done = 0;
+  checks.forEach((c,i)=>{
+    if(c.checked){ done++; localStorage.setItem('check'+i,'1'); }
+    else{ localStorage.removeItem('check'+i); }
+  });
+  const percent = (done/checks.length)*100;
+  document.getElementById('rotinaProgress').style.width = percent + '%';
+}
+
+window.onload = ()=>{
+  const checks = document.querySelectorAll('.checklist input');
+  checks.forEach((c,i)=>{ if(localStorage.getItem('check'+i)) c.checked = true; });
+  updateProgress();
+}
+
+
+// ===== CRONOGRAMA DINÂMICO MENSAL + SEMANAL =====
+const cronogramaData = {
+  'Janeiro': [
+    ['Matemática: Porcentagem','Linguagens: Interpretação','Sociologia: Cultura','Biologia: Ecologia','Redação base','Questões ENEM'],
+    ['Matemática: Funções','Linguagens: Figuras','Filosofia: Ética','Biologia: Citologia','Redação D1','Mini simulado'],
+    ['Matemática: Estatística','Linguagens: Gêneros','História: Brasil','Biologia: Genética','Redação cronometrada','Simulado'],
+    ['Revisão geral','Atualidades','Psicologia social','Natureza revisão','Redação + reescrita','Descanso ativo']
+  ],
+  'Fevereiro': [
+    ['Matemática: Razão','Linguagens: Coesão','Sociologia','Biologia','Redação','Questões'],
+    ['Matemática: Proporção','Linguagens','Filosofia','Biologia','Redação','Mini simulado'],
+    ['Matemática','Linguagens','História','Biologia','Redação','Simulado'],
+    ['Revisão','Atualidades','Psicologia','Natureza','Redação','Descanso']
+  ]
+};
+
+function renderCronograma(){
+  const mes = document.getElementById('mes').value;
+  const semanas = cronogramaData[mes];
+  const semanaAtual = Math.floor((new Date().getDate()-1)/7);
+
+  let html = `<h3>${mes} — Semana ${semanaAtual+1}</h3><ul>`;
+  ['Segunda','Terça','Quarta','Quinta','Sexta','Sábado'].forEach((dia,i)=>{
+    html += `<li><strong>${dia}:</strong> ${semanas[semanaAtual][i]}</li>`;
+  });
+  html += '</ul>';
+  document.getElementById('cronograma').innerHTML = html;
+}
+
+renderCronograma();
+
+</script>
 </body>
 </html>
